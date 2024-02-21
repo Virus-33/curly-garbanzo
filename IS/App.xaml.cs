@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using IS.ViewModels;
 using System.Windows;
 
 namespace IS
@@ -13,5 +8,16 @@ namespace IS
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            MainWindow window = new();
+
+            var vm = new MainVewModel();
+
+            window.DataContext = vm;
+
+            window.Show();
+        }
     }
 }
