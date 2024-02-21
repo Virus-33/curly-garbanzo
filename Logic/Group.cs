@@ -1,13 +1,15 @@
-﻿namespace Logic
+﻿using System.Collections.Generic;
+
+namespace Logic
 {
-    enum GroupGrade
+    public enum GroupGrade
     {
         bachelor,
         magistracy,
         aspirant
     }
 
-    enum GroupType
+    public enum GroupType
     {
         absentia,
         intramural
@@ -19,7 +21,15 @@
     /// </summary>
     public class Group
     {
-       
+        public string code;
+        public GroupGrade grade;
+        public int course;
+        public GroupType type;
+        public Dictionary<string, int> workload;
 
+        public Group()
+        {
+
+        }
     }
 }

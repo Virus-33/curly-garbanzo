@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Logic
 {
@@ -25,7 +26,7 @@ namespace Logic
     /// <summary>
     /// Класс, отвечающий за формирование отчёта и заполнение его полей на основе остальной информации.
     /// </summary>
-    internal class ReportShaper
+    public static class ReportShaper
     {
         /// <summary>
         /// Какая именно группа по итогу там окажется (11 или 12) не принципиально
@@ -33,7 +34,7 @@ namespace Logic
         /// <param name="teacherWorkload">Принимает нагрузку из файла по преподавателям</param>
         /// <param name="plannedWorkload">Принимает нагрузку из файла по студентам</param>
         /// <returns>Новый экземпляр класса Report с заполненными полями</returns>
-        public Report Shape(List<Group> teacherWorkload, List<Group> plannedWorkload)
+        public static Report Shape(DateTime month, string teacher, List<Group> teacherWorkload, List<Group> plannedWorkload)
         {
             throw new System.NotImplementedException();
         }

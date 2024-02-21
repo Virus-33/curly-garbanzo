@@ -6,7 +6,19 @@
         xmlns:local="clr-namespace:IS"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Viewbox Stretch="Fill">
+        <Grid Height="434" Width="800">
+            <TextBox HorizontalAlignment="Left" Text="{Binding Teacher}" Height="23" Margin="10,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="209"/>
+            <Label Content="Ваше ФИО" HorizontalAlignment="Left" Height="27" Margin="74,20,0,0" VerticalAlignment="Top" Width="81"/>
+            <Button Command="{Binding Load1}" HorizontalAlignment="Left" Height="59" Margin="10,84,0,0" VerticalAlignment="Top" Width="104">
+                <TextBlock>Загрузить <LineBreak/> календарный<LineBreak/>учебный график</TextBlock>
+            </Button>
+            <Button Command="{Binding Load2}" HorizontalAlignment="Left" Height="48" Margin="10,169,0,0" VerticalAlignment="Top" Width="101">
+                <TextBlock>Загрузить файл<LineBreak/>с нагрузкой</TextBlock>
+            </Button>
+            <Button Command="{Binding Start}" Content="Составить отчёт" HorizontalAlignment="Left" Height="45" Margin="10,250,0,0" VerticalAlignment="Top" Width="112"/>
+            <Button Command="{Binding Save}" Content="Сохранить отчёт" HorizontalAlignment="Left" Height="45" Margin="10,312,0,0" VerticalAlignment="Top" Width="112"/>
 
-    </Grid>
+        </Grid>
+    </Viewbox>
 </Window>
