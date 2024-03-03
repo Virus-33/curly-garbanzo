@@ -27,23 +27,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Professional\\.nuget\\packages\\": {},
+    "C:\\Users\\ileva\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Kino\\IS\\IS\\IS.csproj",
+      "projectUniqueName": "C:\\GitProj\\curly-garbanzo\\IS\\IS.csproj",
       "projectName": "IS",
-      "projectPath": "G:\\Kino\\IS\\IS\\IS.csproj",
-      "packagesPath": "C:\\Users\\Professional\\.nuget\\packages\\",
-      "outputPath": "G:\\Kino\\IS\\IS\\obj\\",
+      "projectPath": "C:\\GitProj\\curly-garbanzo\\IS\\IS.csproj",
+      "packagesPath": "C:\\Users\\ileva\\.nuget\\packages\\",
+      "outputPath": "C:\\GitProj\\curly-garbanzo\\IS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Professional\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ileva\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -52,14 +52,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "G:\\Kino\\IS\\Logic\\Logic.csproj": {
-              "projectPath": "G:\\Kino\\IS\\Logic\\Logic.csproj"
+            "C:\\GitProj\\curly-garbanzo\\Logic\\Logic.csproj": {
+              "projectPath": "C:\\GitProj\\curly-garbanzo\\Logic\\Logic.csproj"
             }
           }
         }
@@ -92,7 +93,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.313\\RuntimeIdentifierGraph.json"
       }
     }
   }
