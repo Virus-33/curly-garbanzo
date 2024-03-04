@@ -18,10 +18,12 @@ namespace Logic
         /// <param name="path">Путь к выходному файлу</param>
         public static void WriteFile(Report report, string path)
         {
+
+
             throw new System.NotImplementedException();
         }
 
-        void GenerateEmptyExcelReportWith2Groups(string path)
+        void GenerateEmptyExcelReportWith2Groups(string path, Report report)
         {
             //Проверяет на существующий файл и даёт новое имя
             var desktopPath = path;
@@ -33,11 +35,13 @@ namespace Logic
             // Создание нового документа Excel
             using (ExcelPackage package = new ExcelPackage())
             {
+                int CountIntramuralGroups = report.intramuralGroups.Count;
+                int CountAbsentiaGroups = report.absentiaGroups.Count;
                 // Добавление нового листа
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Лист1");
 
-                DrawMarkingInReport(worksheet);
-                WriteInReport(worksheet);
+                DrawMarkingInReport(worksheet, CountIntramuralGroups, CountAbsentiaGroups);
+                WriteInReport(worksheet, CountIntramuralGroups, CountAbsentiaGroups);
 
                 package.SaveAs(new FileInfo(FilePath));
             }
@@ -46,16 +50,17 @@ namespace Logic
 
 
 
-        ExcelWorksheet DrawMarkingInReport(ExcelWorksheet worksheet)
+        ExcelWorksheet DrawMarkingInReport(ExcelWorksheet worksheet, int CountIntramuralGroups, int CountAbsentiaGroups)
         {
             ChangeColumnAllWidth(worksheet);
-            ChangeRowAllHeight(worksheet);
-            JoinAllCells(worksheet);
-            DrawAllBorders(worksheet);
+
+            ChangeRowAllHeight(worksheet, CountIntramuralGroups + CountAbsentiaGroups);
+            JoinAllCells(worksheet, CountIntramuralGroups + CountAbsentiaGroups);
+            DrawAllBorders(worksheet, CountIntramuralGroups + CountAbsentiaGroups);
             return worksheet;
         }
 
-        ExcelWorksheet WriteInReport(ExcelWorksheet worksheet)
+        ExcelWorksheet WriteInReport(ExcelWorksheet worksheet, int CountIntramuralGroups, int CountAbsentiaGroups)
         {
             WriteTextInCurrentCell(worksheet.Cells["A2:P2"], "Отчет о выполненной работе", 18);
             worksheet.Cells["A2:P2"].Style.Font.Bold = true;
@@ -82,42 +87,54 @@ namespace Logic
             WriteTextInCurrentCell(worksheet.Cells["O8"], "Рук. аспирант-стажерами", 12);
             WriteTextInCurrentCell(worksheet.Cells["P7"], "Всего часов", 12);
 
-            WriteTextInCurrentCell(worksheet.Cells["A9"], "Очная форма обучения", 12);
-            worksheet.Cells["A9"].Style.TextRotation = 90;
+            int CurrentCoordinate = 9;
 
-            WriteTextInCurrentCell(worksheet.Cells["A11"], "Итого", 12);
-            worksheet.Cells["A11"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+            for (int i = 0; i < CountIntramuralGroups; i++)
+            {
+                WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate}"], "Очная форма обучения", 12);
+                worksheet.Cells[$"A{CurrentCoordinate}"].Style.TextRotation = 90;
 
-            WriteTextInCurrentCell(worksheet.Cells["A12"], "Заочная форма обучения", 12);
-            worksheet.Cells["A12"].Style.TextRotation = 90;
+                WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate + 2}"], "Итого", 12);
+                worksheet.Cells[$"A{CurrentCoordinate + 2}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
 
-            WriteTextInCurrentCell(worksheet.Cells["A14"], "Итого", 12);
-            worksheet.Cells["A14"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                CurrentCoordinate = CurrentCoordinate + 3;
+            }
 
-            WriteTextInCurrentCell(worksheet.Cells["A15"], "Всего за месяц", 12);
-            worksheet.Cells["A15"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+            for (int i = 0; i < CountAbsentiaGroups; i++)
+            {
+                WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate}"], "Заочная форма обучения", 12);
+                worksheet.Cells[$"A{CurrentCoordinate}"].Style.TextRotation = 90;
 
-            WriteTextInCurrentCell(worksheet.Cells["A16"], "Всего от начала года", 12);
-            worksheet.Cells["A16"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+                WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate + 2}"], "Итого", 12);
+                worksheet.Cells[$"A{CurrentCoordinate + 2}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
 
-            WriteTextInCurrentCell(worksheet.Cells["A19"], "Учебно-методическая работа", 12);
-            worksheet.Cells["A19"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-            worksheet.Cells["A19"].Style.VerticalAlignment = ExcelVerticalAlignment.Bottom;
+                CurrentCoordinate = CurrentCoordinate + 3;
+            }
 
-            WriteTextInCurrentCell(worksheet.Cells["A24"], "Научно-исследовательская работа", 12);
-            worksheet.Cells["A24"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-            worksheet.Cells["A24"].Style.VerticalAlignment = ExcelVerticalAlignment.Bottom;
+            WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate}"], "Всего за месяц", 12);
+            worksheet.Cells[$"A{CurrentCoordinate}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
 
-            WriteTextInCurrentCell(worksheet.Cells["A29"], "Воспитательная работа", 12);
-            worksheet.Cells["A29"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-            worksheet.Cells["A29"].Style.VerticalAlignment = ExcelVerticalAlignment.Bottom;
+            WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate + 1}"], "Всего от начала года", 12);
+            worksheet.Cells[$"A{CurrentCoordinate + 1}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
 
-            WriteTextInCurrentCell(worksheet.Cells["A34"], "Прочая работа", 12);
-            worksheet.Cells["A34"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-            worksheet.Cells["A34"].Style.VerticalAlignment = ExcelVerticalAlignment.Bottom;
+            WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate + 4}"], "Учебно-методическая работа", 12);
+            worksheet.Cells[$"A{CurrentCoordinate + 4}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+            worksheet.Cells[$"A{CurrentCoordinate + 4}"].Style.VerticalAlignment = ExcelVerticalAlignment.Bottom;
 
-            WriteTextInCurrentCell(worksheet.Cells["J42"], "подпись преподавателя", 12);
-            worksheet.Cells["J42"].Style.VerticalAlignment = ExcelVerticalAlignment.Top;
+            WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate + 9}"], "Научно-исследовательская работа", 12);
+            worksheet.Cells[$"A{CurrentCoordinate + 9}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+            worksheet.Cells[$"A{CurrentCoordinate + 9}"].Style.VerticalAlignment = ExcelVerticalAlignment.Bottom;
+
+            WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate + 14}"], "Воспитательная работа", 12);
+            worksheet.Cells[$"A{CurrentCoordinate + 14}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+            worksheet.Cells[$"A{CurrentCoordinate + 14}"].Style.VerticalAlignment = ExcelVerticalAlignment.Bottom;
+
+            WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate + 19}"], "Прочая работа", 12);
+            worksheet.Cells[$"A{CurrentCoordinate + 19}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+            worksheet.Cells[$"A{CurrentCoordinate + 19}"].Style.VerticalAlignment = ExcelVerticalAlignment.Bottom;
+
+            WriteTextInCurrentCell(worksheet.Cells[$"J{CurrentCoordinate + 27}"], "подпись преподавателя", 12);
+            worksheet.Cells[$"J{CurrentCoordinate + 27}"].Style.VerticalAlignment = ExcelVerticalAlignment.Top;
 
             return worksheet;
         }
@@ -150,7 +167,7 @@ namespace Logic
             return worksheet;
         }
 
-        ExcelWorksheet ChangeRowAllHeight(ExcelWorksheet worksheet)
+        ExcelWorksheet ChangeRowAllHeight(ExcelWorksheet worksheet, int CountGroups)
         {
             worksheet.Row(1).Height = 23;
             worksheet.Row(2).Height = 24.5;
@@ -159,36 +176,42 @@ namespace Logic
             worksheet.Row(5).Height = 23;
             worksheet.Row(6).Height = 17;
             worksheet.Row(7).Height = 17;
+            worksheet.Row(8).Height = 68;
 
-            for (int i = 8; i < 11; i++)
+            int CurrentCoordinate = 9;
+
+            for (int j = 0; j < CountGroups; j++)
             {
-                worksheet.Row(i).Height = 68;
+                for (int i = CurrentCoordinate; i < CurrentCoordinate + 2; i++)
+                {
+                    worksheet.Row(i).Height = 68;
+                }
+                worksheet.Row(CurrentCoordinate + 2).Height = 30;
+                CurrentCoordinate = CurrentCoordinate + 3;
             }
 
-            worksheet.Row(11).Height = 29;
-            worksheet.Row(12).Height = 47;
-            worksheet.Row(13).Height = 47;
-            worksheet.Row(14).Height = 24;
 
-            for (int i = 15; i < 18; i++)
+            for (int i = CurrentCoordinate; i < CurrentCoordinate + 3; i++)
             {
                 worksheet.Row(i).Height = 30;
             }
 
-            worksheet.Row(18).Height = 16;
+            worksheet.Row(CurrentCoordinate + 3).Height = 16;
+            CurrentCoordinate = CurrentCoordinate + 4;
 
-            for (int i = 19; i < 38; i++)
+            for (int i = CurrentCoordinate; i < CurrentCoordinate + 19; i++)
             {
                 worksheet.Row(i).Height = 22;
             }
 
-            worksheet.Row(41).Height = 17;
-            worksheet.Row(42).Height = 17;
+            CurrentCoordinate = CurrentCoordinate + 22;
+            worksheet.Row(CurrentCoordinate).Height = 17;
+            worksheet.Row(CurrentCoordinate + 1).Height = 17;
 
             return worksheet;
         }
 
-        ExcelWorksheet JoinAllCells(ExcelWorksheet worksheet)
+        ExcelWorksheet JoinAllCells(ExcelWorksheet worksheet, int CountGroups)
         {
             JoinCells(worksheet, "A2:P2");
             JoinCells(worksheet, "E3:H3");
@@ -201,14 +224,24 @@ namespace Logic
             JoinCells(worksheet, "B7:B8");
             JoinCells(worksheet, "C7:O7");
             JoinCells(worksheet, "P7:P8");
-            JoinCells(worksheet, "A9:A10");
-            JoinCells(worksheet, "A11:B11");
-            JoinCells(worksheet, "A12:A13");
-            JoinCells(worksheet, "A14:B14");
-            JoinCells(worksheet, "A15:B15");
-            JoinCells(worksheet, "A16:B16");
 
-            for (int i = 19; i < 39; i = i + 5)
+            int CurrentCoordinate = 9;
+
+
+            for (int i = 0; i < CountGroups; i++)
+            {
+                JoinCells(worksheet, $"A{CurrentCoordinate}:A{CurrentCoordinate + 1}");
+                JoinCells(worksheet, $"A{CurrentCoordinate + 2}:B{CurrentCoordinate + 2}");
+                CurrentCoordinate = CurrentCoordinate + 3;
+            }
+
+
+            JoinCells(worksheet, $"A{CurrentCoordinate}:B{CurrentCoordinate}");
+            JoinCells(worksheet, $"A{CurrentCoordinate + 1}:B{CurrentCoordinate + 1}");
+
+            CurrentCoordinate = CurrentCoordinate + 4;
+
+            for (int i = CurrentCoordinate; i < CurrentCoordinate + 19; i = i + 5)
             {
                 JoinCells(worksheet, $"A{i}:D{i}");
                 JoinCells(worksheet, $"A{i + 1}:P{i + 1}");
@@ -216,8 +249,10 @@ namespace Logic
                 JoinCells(worksheet, $"A{i + 3}:P{i + 3}");
             }
 
-            JoinCells(worksheet, "J41:P41");
-            JoinCells(worksheet, "J42:P42");
+            CurrentCoordinate = CurrentCoordinate + 22;
+
+            JoinCells(worksheet, $"J{CurrentCoordinate}:P{CurrentCoordinate}");
+            JoinCells(worksheet, $"J{CurrentCoordinate + 1}:P{CurrentCoordinate + 1}");
 
             return worksheet;
         }
@@ -229,22 +264,13 @@ namespace Logic
             return worksheet;
         }
 
-        ExcelWorksheet DrawAllBorders(ExcelWorksheet worksheet)
+        ExcelWorksheet DrawAllBorders(ExcelWorksheet worksheet, int CountGroups)
         {
             DrawBottomBorders(worksheet, "E3:H3");
             DrawBottomBorders(worksheet, "J3");
             DrawBottomBorders(worksheet, "E4:L4");
             DrawBottomBorders(worksheet, "G5:I5");
 
-            for (int i = 19; i < 39; i = i + 5)
-            {
-                DrawBottomBorders(worksheet, $"E{i}:$P{i}");
-                DrawBottomBorders(worksheet, $"A{i + 1}:P{i + 1}");
-                DrawBottomBorders(worksheet, $"A{i + 2}:P{i + 2}");
-                DrawBottomBorders(worksheet, $"A{i + 3}:P{i + 3}");
-            }
-
-            DrawBottomBorders(worksheet, "J41:P41");
 
             DrawAroundBorders(worksheet, 7, 1, 8, 1);
             DrawAroundBorders(worksheet, 7, 2, 8, 2);
@@ -256,30 +282,29 @@ namespace Logic
                 DrawAroundBorders(worksheet, 8, i, 8, i);
             }
 
-            DrawAroundBorders(worksheet, 9, 1, 10, 1);
+            int CurrentCoordinate = 9;
 
-            for (int i = 2; i < 17; i++)
+            for (int j = 0; j < CountGroups; j++)
             {
-                DrawAroundBorders(worksheet, 9, i, 9, i);
-                DrawAroundBorders(worksheet, 10, i, 10, i);
+                DrawAroundBorders(worksheet, CurrentCoordinate, 1, CurrentCoordinate + 1, 1);
+
+                for (int i = 2; i < 17; i++)
+                {
+                    DrawAroundBorders(worksheet, CurrentCoordinate, i, CurrentCoordinate, i);
+                    DrawAroundBorders(worksheet, CurrentCoordinate + 1, i, CurrentCoordinate + 1, i);
+                }
+
+                DrawAroundBorders(worksheet, CurrentCoordinate + 2, 1, CurrentCoordinate + 2, 2);
+
+                for (int i = 3; i < 17; i++)
+                {
+                    DrawAroundBorders(worksheet, CurrentCoordinate + 2, i, CurrentCoordinate + 2, i);
+                }
+
+                CurrentCoordinate = CurrentCoordinate + 3;
             }
 
-            DrawAroundBorders(worksheet, 11, 1, 11, 2);
-
-            for (int i = 3; i < 17; i++)
-            {
-                DrawAroundBorders(worksheet, 11, i, 11, i);
-            }
-
-            DrawAroundBorders(worksheet, 12, 1, 13, 1);
-
-            for (int i = 2; i < 17; i++)
-            {
-                DrawAroundBorders(worksheet, 12, i, 12, i);
-                DrawAroundBorders(worksheet, 13, i, 13, i);
-            }
-
-            for (int i = 14; i < 17; i++)
+            for (int i = CurrentCoordinate; i < CurrentCoordinate + 2; i++)
             {
                 for (int j = 3; j < 17; j++)
                 {
@@ -287,6 +312,20 @@ namespace Logic
                     DrawAroundBorders(worksheet, i, j, i, j);
                 }
             }
+
+            CurrentCoordinate = CurrentCoordinate + 4;
+
+            for (int i = CurrentCoordinate; i < CurrentCoordinate + 19; i = i + 5)
+            {
+                DrawBottomBorders(worksheet, $"E{i}:$P{i}");
+                DrawBottomBorders(worksheet, $"A{i + 1}:P{i + 1}");
+                DrawBottomBorders(worksheet, $"A{i + 2}:P{i + 2}");
+                DrawBottomBorders(worksheet, $"A{i + 3}:P{i + 3}");
+            }
+
+            CurrentCoordinate = CurrentCoordinate + 22;
+
+            DrawBottomBorders(worksheet, $"J{CurrentCoordinate}:P{CurrentCoordinate}");
 
             return worksheet;
         }
@@ -317,5 +356,6 @@ namespace Logic
 
             return cell;
         }
+
     }
 }
