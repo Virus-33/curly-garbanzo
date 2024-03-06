@@ -3,6 +3,8 @@ using System.IO;
 using System;
 using OfficeOpenXml;
 using OfficeOpenXml.Style;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Logic
 {
@@ -18,12 +20,11 @@ namespace Logic
         /// <param name="path">Путь к выходному файлу</param>
         public static void WriteFile(Report report, string path)
         {
-
-
-            throw new System.NotImplementedException();
+            FileWriter fileWriter = new FileWriter();
+            fileWriter.GenerateExcelReport(path,report);
         }
 
-        void GenerateEmptyExcelReportWith2Groups(string path, Report report)
+        void GenerateExcelReport(string path, Report report)
         {
             //Проверяет на существующий файл и даёт новое имя
             var desktopPath = path;
@@ -37,26 +38,86 @@ namespace Logic
             {
                 int CountIntramuralGroups = report.intramuralGroups.Count;
                 int CountAbsentiaGroups = report.absentiaGroups.Count;
+
                 // Добавление нового листа
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Лист1");
 
                 DrawMarkingInReport(worksheet, CountIntramuralGroups, CountAbsentiaGroups);
                 WriteInReport(worksheet, CountIntramuralGroups, CountAbsentiaGroups);
 
+                WriteDataInReport(worksheet, report);
+
                 package.SaveAs(new FileInfo(FilePath));
             }
 
         }
 
+        ExcelWorksheet WriteDataInReport(ExcelWorksheet worksheet, Report report)
+        {
+            WriteTextInCurrentCell(worksheet.Cells["E3"], report.month, 14);
+            WriteTextInCurrentCell(worksheet.Cells["E4"], report.teacher, 14);
+            WriteTextInCurrentCell(worksheet.Cells["G5"], Convert.ToString(report.totalWorkload), 14);
 
+            int CurrentCell = 9;
+
+            //очники
+            for (int i = 0; i < report.intramuralGroups.Count(); i++)
+            {
+                Group currentGroup = report.intramuralGroups[i];
+                WriteTextInCurrentCell(worksheet.Cells[$"B{CurrentCell}"], currentGroup.code, 12);
+
+                for (int j = 3; j < 17; j++)
+                {
+                    foreach (KeyValuePair<string, int> element in currentGroup.workload)
+                    {
+                        if (Convert.ToString(worksheet.Cells[8, j]) == element.Key)
+                        {
+                            WriteTextInCurrentCell(worksheet.Cells[CurrentCell,j], Convert.ToString(element.Value),12);
+                        }
+                    }
+                }
+                CurrentCell++;                                
+            }
+            WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.intramuralSummary), 12);
+            CurrentCell++;
+
+            //заочники
+            for (int i = 0; i < report.absentiaGroups.Count(); i++)
+            {
+                Group currentGroup = report.absentiaGroups[i];
+                WriteTextInCurrentCell(worksheet.Cells[$"B{CurrentCell}"], currentGroup.code, 12);
+
+                for (int j = 3; j < 17; j++)
+                {
+                    foreach (KeyValuePair<string, int> element in currentGroup.workload)
+                    {
+                        if (Convert.ToString(worksheet.Cells[8, j]) == element.Key)
+                        {
+                            WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(element.Value), 12);
+                        }
+                    }
+                }
+                CurrentCell++;
+            }
+            WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.absentiaSummary), 12);
+            CurrentCell++;
+
+            WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.monthlySummary), 12);
+            CurrentCell++;
+
+            WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.yearlySummary), 12);
+            CurrentCell= CurrentCell + 4;
+
+            return worksheet;
+        }
 
         ExcelWorksheet DrawMarkingInReport(ExcelWorksheet worksheet, int CountIntramuralGroups, int CountAbsentiaGroups)
         {
             ChangeColumnAllWidth(worksheet);
 
-            ChangeRowAllHeight(worksheet, CountIntramuralGroups + CountAbsentiaGroups);
-            JoinAllCells(worksheet, CountIntramuralGroups + CountAbsentiaGroups);
-            DrawAllBorders(worksheet, CountIntramuralGroups + CountAbsentiaGroups);
+            ChangeRowAllHeight(worksheet, CountIntramuralGroups, CountAbsentiaGroups);
+            JoinAllCells(worksheet, CountIntramuralGroups, CountAbsentiaGroups);
+            DrawAllBorders(worksheet, CountIntramuralGroups, CountAbsentiaGroups);
             return worksheet;
         }
 
@@ -89,27 +150,22 @@ namespace Logic
 
             int CurrentCoordinate = 9;
 
-            for (int i = 0; i < CountIntramuralGroups; i++)
-            {
-                WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate}"], "Очная форма обучения", 12);
-                worksheet.Cells[$"A{CurrentCoordinate}"].Style.TextRotation = 90;
+            //Очные 
+            WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate}"], "Очная форма обучения", 12);
+            worksheet.Cells[$"A{CurrentCoordinate}"].Style.TextRotation = 90;
+            WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate + CountIntramuralGroups}"], "Итого", 12);
+            worksheet.Cells[$"A{CurrentCoordinate + CountIntramuralGroups}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
 
-                WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate + 2}"], "Итого", 12);
-                worksheet.Cells[$"A{CurrentCoordinate + 2}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
+            CurrentCoordinate = CurrentCoordinate + CountIntramuralGroups + 1;
 
-                CurrentCoordinate = CurrentCoordinate + 3;
-            }
+            //Заочные 
+            WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate}"], "Заочная форма обучения", 12);
+            worksheet.Cells[$"A{CurrentCoordinate}"].Style.TextRotation = 90;
+            WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate + CountAbsentiaGroups}"], "Итого", 12);
+            worksheet.Cells[$"A{CurrentCoordinate + CountAbsentiaGroups}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
 
-            for (int i = 0; i < CountAbsentiaGroups; i++)
-            {
-                WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate}"], "Заочная форма обучения", 12);
-                worksheet.Cells[$"A{CurrentCoordinate}"].Style.TextRotation = 90;
+            CurrentCoordinate = CurrentCoordinate + CountAbsentiaGroups + 1;
 
-                WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate + 2}"], "Итого", 12);
-                worksheet.Cells[$"A{CurrentCoordinate + 2}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
-
-                CurrentCoordinate = CurrentCoordinate + 3;
-            }
 
             WriteTextInCurrentCell(worksheet.Cells[$"A{CurrentCoordinate}"], "Всего за месяц", 12);
             worksheet.Cells[$"A{CurrentCoordinate}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Left;
@@ -167,7 +223,7 @@ namespace Logic
             return worksheet;
         }
 
-        ExcelWorksheet ChangeRowAllHeight(ExcelWorksheet worksheet, int CountGroups)
+        ExcelWorksheet ChangeRowAllHeight(ExcelWorksheet worksheet, int CountIntramuralGroups, int CountAbsentiaGroups)
         {
             worksheet.Row(1).Height = 23;
             worksheet.Row(2).Height = 24.5;
@@ -180,15 +236,21 @@ namespace Logic
 
             int CurrentCoordinate = 9;
 
-            for (int j = 0; j < CountGroups; j++)
+            //Высота ячеек для Очных групп
+            for (int i = CurrentCoordinate; i < CurrentCoordinate + CountIntramuralGroups; i++)
             {
-                for (int i = CurrentCoordinate; i < CurrentCoordinate + 2; i++)
-                {
-                    worksheet.Row(i).Height = 68;
-                }
-                worksheet.Row(CurrentCoordinate + 2).Height = 30;
-                CurrentCoordinate = CurrentCoordinate + 3;
+                worksheet.Row(i).Height = 68;
             }
+            worksheet.Row(CurrentCoordinate + CountIntramuralGroups).Height = 30;
+            CurrentCoordinate = CurrentCoordinate + CountIntramuralGroups + 1;
+
+            //Высота ячеек для заочных групп
+            for (int i = CurrentCoordinate; i < CurrentCoordinate + CountAbsentiaGroups; i++)
+            {
+                worksheet.Row(i).Height = 68;
+            }
+            worksheet.Row(CurrentCoordinate + CountAbsentiaGroups).Height = 30;
+            CurrentCoordinate = CurrentCoordinate + CountAbsentiaGroups + 1;
 
 
             for (int i = CurrentCoordinate; i < CurrentCoordinate + 3; i++)
@@ -211,7 +273,7 @@ namespace Logic
             return worksheet;
         }
 
-        ExcelWorksheet JoinAllCells(ExcelWorksheet worksheet, int CountGroups)
+        ExcelWorksheet JoinAllCells(ExcelWorksheet worksheet, int CountIntramuralGroups, int CountAbsentiaGroups)
         {
             JoinCells(worksheet, "A2:P2");
             JoinCells(worksheet, "E3:H3");
@@ -227,13 +289,21 @@ namespace Logic
 
             int CurrentCoordinate = 9;
 
+            //Ячейка под Очные группы
+            JoinCells(worksheet, $"A{CurrentCoordinate}:A{CurrentCoordinate + CountIntramuralGroups - 1}");
+            CurrentCoordinate = CurrentCoordinate + CountIntramuralGroups;
 
-            for (int i = 0; i < CountGroups; i++)
-            {
-                JoinCells(worksheet, $"A{CurrentCoordinate}:A{CurrentCoordinate + 1}");
-                JoinCells(worksheet, $"A{CurrentCoordinate + 2}:B{CurrentCoordinate + 2}");
-                CurrentCoordinate = CurrentCoordinate + 3;
-            }
+            //Итог очных
+            JoinCells(worksheet, $"A{CurrentCoordinate}:B{CurrentCoordinate}");
+            CurrentCoordinate = CurrentCoordinate + 1;
+
+            //Ячейка под заочные группы
+            JoinCells(worksheet, $"A{CurrentCoordinate}:A{CurrentCoordinate + CountAbsentiaGroups - 1}");
+            CurrentCoordinate = CurrentCoordinate + CountAbsentiaGroups;
+
+            //Итог заочных
+            JoinCells(worksheet, $"A{CurrentCoordinate}:B{CurrentCoordinate}");
+            CurrentCoordinate = CurrentCoordinate + 1;
 
 
             JoinCells(worksheet, $"A{CurrentCoordinate}:B{CurrentCoordinate}");
@@ -264,7 +334,7 @@ namespace Logic
             return worksheet;
         }
 
-        ExcelWorksheet DrawAllBorders(ExcelWorksheet worksheet, int CountGroups)
+        ExcelWorksheet DrawAllBorders(ExcelWorksheet worksheet, int CountIntramuralGroups, int CountAbsentiaGroups)
         {
             DrawBottomBorders(worksheet, "E3:H3");
             DrawBottomBorders(worksheet, "J3");
@@ -284,31 +354,57 @@ namespace Logic
 
             int CurrentCoordinate = 9;
 
-            for (int j = 0; j < CountGroups; j++)
-            {
-                DrawAroundBorders(worksheet, CurrentCoordinate, 1, CurrentCoordinate + 1, 1);
+            //Для Очных
+            DrawAroundBorders(worksheet, CurrentCoordinate, 1, CurrentCoordinate + CountIntramuralGroups - 1, 1);
 
+            for (int j = 0; j < CountIntramuralGroups; j++)
+            {
                 for (int i = 2; i < 17; i++)
                 {
                     DrawAroundBorders(worksheet, CurrentCoordinate, i, CurrentCoordinate, i);
-                    DrawAroundBorders(worksheet, CurrentCoordinate + 1, i, CurrentCoordinate + 1, i);
                 }
+                CurrentCoordinate++;
 
-                DrawAroundBorders(worksheet, CurrentCoordinate + 2, 1, CurrentCoordinate + 2, 2);
-
-                for (int i = 3; i < 17; i++)
-                {
-                    DrawAroundBorders(worksheet, CurrentCoordinate + 2, i, CurrentCoordinate + 2, i);
-                }
-
-                CurrentCoordinate = CurrentCoordinate + 3;
             }
+            //Итог очных
+            DrawAroundBorders(worksheet, CurrentCoordinate, 1, CurrentCoordinate, 2);
+
+            for (int i = 3; i < 17; i++)
+            {
+                DrawAroundBorders(worksheet, CurrentCoordinate, i, CurrentCoordinate, i);
+            }
+
+            CurrentCoordinate = CurrentCoordinate + 1;
+
+            //Для заочных
+            DrawAroundBorders(worksheet, CurrentCoordinate, 1, CurrentCoordinate + CountAbsentiaGroups - 1, 1);
+
+            for (int j = 0; j < CountAbsentiaGroups; j++)
+            {
+                for (int i = 2; i < 17; i++)
+                {
+                    DrawAroundBorders(worksheet, CurrentCoordinate, i, CurrentCoordinate, i);
+                }
+                CurrentCoordinate++;
+
+            }
+
+            //Итог заочных
+            DrawAroundBorders(worksheet, CurrentCoordinate, 1, CurrentCoordinate, 2);
+
+            for (int i = 3; i < 17; i++)
+            {
+                DrawAroundBorders(worksheet, CurrentCoordinate, i, CurrentCoordinate, i);
+            }
+
+            CurrentCoordinate = CurrentCoordinate + 1;
+
 
             for (int i = CurrentCoordinate; i < CurrentCoordinate + 2; i++)
             {
+                DrawAroundBorders(worksheet, i, 1, i, 2);
                 for (int j = 3; j < 17; j++)
                 {
-                    DrawAroundBorders(worksheet, i, 1, i, 2);
                     DrawAroundBorders(worksheet, i, j, i, j);
                 }
             }
