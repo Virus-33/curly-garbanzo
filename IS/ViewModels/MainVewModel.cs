@@ -17,7 +17,7 @@ namespace IS.ViewModels
         {
             get
             {
-                return "Хабаров Валерий Иванович";
+                return teacher;
             }
             set
             {
@@ -93,7 +93,7 @@ namespace IS.ViewModels
         public void LoadWorkload()
         {
             // TODO: Add logic for path retrieving BEFORE other actions
-            workloadData = WorkloadParser.Parse("C:\\Users\\mdemi\\Downloads\\Nagruzka_po_prepodavatelyam (1).xlsx", Teacher);
+            workloadData = WorkloadParser.Parse(workloadPath, Teacher);
         }
 
         public void DoTheWork()
