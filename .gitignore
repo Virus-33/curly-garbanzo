@@ -1,0 +1,18 @@
+# Ignore Visual Studio files
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Ignore build output
+bin/
+obj/
+
+# Ignore NuGet packages
+packages/
+
+# Ignore Visual Studio generated files
+*.csproj.user
+*.vssscc
+*.vspscc
+*.vstemplate

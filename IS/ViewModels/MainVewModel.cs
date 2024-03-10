@@ -1,5 +1,6 @@
 ﻿using Logic;
 using Logic.Utility;
+using Logic.WorkloadParser;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,7 @@ namespace IS.ViewModels
         {
             get
             {
-                return teacher;
+                return "Хабаров Валерий Иванович";
             }
             set
             {
@@ -92,7 +93,7 @@ namespace IS.ViewModels
         public void LoadWorkload()
         {
             // TODO: Add logic for path retrieving BEFORE other actions
-            workloadData = WorkloadParser.Parse(workloadPath);
+            workloadData = WorkloadParser.Parse("C:\\Users\\mdemi\\Downloads\\Nagruzka_po_prepodavatelyam (1).xlsx", Teacher);
         }
 
         public void DoTheWork()
