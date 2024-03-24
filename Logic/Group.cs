@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using NPOI.HSSF.Model;
+using System.Collections.Generic;
 
 namespace Logic
 {
@@ -30,6 +31,15 @@ namespace Logic
         public Group()
         {
 
+        }
+
+        public Group(string code, GroupGrade grade, int course, GroupType type, Dictionary<string, int> load)
+        {
+            this.code = code;
+            this.grade = grade;
+            this.course = course;
+            this.type = type;
+            workload = load;
         }
     }
 }

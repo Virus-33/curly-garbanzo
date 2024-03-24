@@ -1,0 +1,120 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\Kino\\curly-garbanzo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\calendarparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\calendarparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\utility\\grouppreprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\utility\\grouppreprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D562A7D0-FE6F-41E4-94D8-DA971222C052}|IS\\IS.csproj|g:\\kino\\curly-garbanzo\\is\\viewmodels\\mainvewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D562A7D0-FE6F-41E4-94D8-DA971222C052}|IS\\IS.csproj|solutionrelative:is\\viewmodels\\mainvewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\reportshaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\reportshaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D562A7D0-FE6F-41E4-94D8-DA971222C052}|IS\\IS.csproj|g:\\kino\\curly-garbanzo\\is\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D562A7D0-FE6F-41E4-94D8-DA971222C052}|IS\\IS.csproj|solutionrelative:is\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GroupPreprocessor.cs",
+              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\Utility\\GroupPreprocessor.cs",
+              "RelativeDocumentMoniker": "Logic\\Utility\\GroupPreprocessor.cs",
+              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\Utility\\GroupPreprocessor.cs",
+              "RelativeToolTip": "Logic\\Utility\\GroupPreprocessor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-24T05:14:17.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CalendarParser.cs",
+              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\CalendarParser.cs",
+              "RelativeDocumentMoniker": "Logic\\CalendarParser.cs",
+              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\CalendarParser.cs",
+              "RelativeToolTip": "Logic\\CalendarParser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-23T08:04:21.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainVewModel.cs",
+              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\IS\\ViewModels\\MainVewModel.cs",
+              "RelativeDocumentMoniker": "IS\\ViewModels\\MainVewModel.cs",
+              "ToolTip": "G:\\Kino\\curly-garbanzo\\IS\\ViewModels\\MainVewModel.cs",
+              "RelativeToolTip": "IS\\ViewModels\\MainVewModel.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAGwAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-23T08:04:21.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Report.cs",
+              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\Report.cs",
+              "RelativeDocumentMoniker": "Logic\\Report.cs",
+              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\Report.cs",
+              "RelativeToolTip": "Logic\\Report.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-23T08:04:21.917Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ReportShaper.cs",
+              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\ReportShaper.cs",
+              "RelativeDocumentMoniker": "Logic\\ReportShaper.cs",
+              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\ReportShaper.cs",
+              "RelativeToolTip": "Logic\\ReportShaper.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAAACIAAABfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-23T08:04:21.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\IS\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "IS\\MainWindow.xaml",
+              "ToolTip": "G:\\Kino\\curly-garbanzo\\IS\\MainWindow.xaml",
+              "RelativeToolTip": "IS\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-03-23T08:04:21.927Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

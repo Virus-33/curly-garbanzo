@@ -1,0 +1,13 @@
+G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.csproj.AssemblyReference.cache
+G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.GeneratedMSBuildEditorConfig.editorconfig
+G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.AssemblyInfoInputs.cache
+G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.AssemblyInfo.cs
+G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.csproj.CoreCompileInputs.cache
+G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.sourcelink.json
+G:\Kino\curly-garbanzo\Logic\bin\Debug\net5.0\Logic.deps.json
+G:\Kino\curly-garbanzo\Logic\bin\Debug\net5.0\Logic.dll
+G:\Kino\curly-garbanzo\Logic\bin\Debug\net5.0\Logic.pdb
+G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.dll
+G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\refint\Logic.dll
+G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.pdb
+G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\ref\Logic.dll

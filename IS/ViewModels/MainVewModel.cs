@@ -1,9 +1,13 @@
 ﻿using Logic;
 using Logic.Utility;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Windows;
 
+
+#nullable disable
 namespace IS.ViewModels
 {
     /// <summary>
@@ -11,7 +15,20 @@ namespace IS.ViewModels
     /// </summary>
     public class MainVewModel : INotifyPropertyChanged
     {
-        public DateTime month { get; set; }
+        DateTime month;
+        public DateTime Month
+        {
+            get
+            {
+                return month;
+            }
+            set
+            {
+                month = value;
+                OnPropertyChanged(nameof(Month));
+            }
+        }
+
         public string Teacher
         {
             get
@@ -29,7 +46,7 @@ namespace IS.ViewModels
         string calendarPath;
         string workloadPath;
 
-        string outputPath;
+        readonly string outputPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
         Report Result { get; set; }
 
@@ -80,29 +97,49 @@ namespace IS.ViewModels
 
         public MainVewModel()
         {
-
+            month = new();
         }
 
         public void LoadCalendar()
         {
-            // TODO: Add logic for path retrieving BEFORE other actions
+            OpenFileDialog ofd = new();
+            ofd.Filter = "Excel File (*.xls)|*.xls|Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*";
+            if (ofd.ShowDialog() == true)
+            {
+                workloadPath = ofd.FileName;
+            }
+
             calendarData = CalendarParser.Parse(calendarPath);
         }
 
         public void LoadWorkload()
         {
-            // TODO: Add logic for path retrieving BEFORE other actions
-            workloadData = WorkloadParser.Parse(workloadPath);
+            if (Teacher != null)
+            {
+
+                OpenFileDialog ofd = new();
+                ofd.Filter = "Excel File (*.xls)|*.xls|Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*";
+                if (ofd.ShowDialog() == true)
+                {
+                    workloadPath = ofd.FileName;
+                }
+
+                workloadData = WorkloadParser.Parse(workloadPath, Teacher);
+            }
+            else
+            {
+                MessageBox.Show("Имя преподавателя не может быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
 
         public void DoTheWork()
         {
-            Report report = ReportShaper.Shape(month, teacher, workloadData, calendarData);
+            // TODO: Change workloadData to preprocessedData
+            Report report = ReportShaper.Shape(month, teacher, workloadData);
         }
 
         public void SaveFile()
         {
-            // TODO: Add logic for path retrieving BEFORE other actions
             FileWriter.WriteFile(Result, outputPath);
         }
 

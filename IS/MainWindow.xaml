@@ -18,6 +18,8 @@
             </Button>
             <Button Command="{Binding Start}" Content="Составить отчёт" HorizontalAlignment="Left" Height="45" Margin="10,250,0,0" VerticalAlignment="Top" Width="112"/>
             <Button Command="{Binding Save}" Content="Сохранить отчёт" HorizontalAlignment="Left" Height="45" Margin="10,312,0,0" VerticalAlignment="Top" Width="112"/>
+            <DatePicker HorizontalAlignment="Left" Margin="16,394,0,0" SelectedDate="{Binding Month}" VerticalAlignment="Top"/>
+            <Label Content="Выберите месяц:" HorizontalAlignment="Left" Height="28" Margin="11,366,0,0" VerticalAlignment="Top" Width="104"/>
 
         </Grid>
     </Viewbox>
