@@ -69,6 +69,7 @@ namespace IS.ViewModels
 
         List<Group> workloadData;
         List<Group> calendarData;
+        List<Group> preprocessedData;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -96,7 +97,7 @@ namespace IS.ViewModels
         {
             get
             {
-                return _start ??= new Command(obj => LoadCalendar());
+                return _start ??= new Command(obj => DoTheWork());
             }
         }
 
@@ -151,8 +152,10 @@ namespace IS.ViewModels
 
         public void DoTheWork()
         {
-            // TODO: Change workloadData to preprocessedData
-            Report report = ReportShaper.Shape(month, teacher, workloadData);
+            preprocessedData = GroupPreprocessor.MergeByAffiliation(calendarData, workloadData);
+            calendarData = new();
+            foreach (Group group in preprocessedData) GroupPreprocessor.Summator(group);
+            Result = ReportShaper.Shape(month, teacher, preprocessedData);
         }
 
         public void SaveFile()
