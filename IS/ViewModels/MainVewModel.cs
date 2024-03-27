@@ -120,7 +120,7 @@ namespace IS.ViewModels
         public void LoadCalendar()
         {
             OpenFileDialog ofd = new();
-            ofd.Filter = "Excel File (*.xls)|*.xls|Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*";
+            ofd.Filter = "Excel Files (*.xlsx)|*.xlsx|Excel File (*.xls)|*.xls|All Files (*.*)|*.*";
             if (ofd.ShowDialog() == true)
             {
                 calendarPath = ofd.FileName;
@@ -135,7 +135,7 @@ namespace IS.ViewModels
             {
 
                 OpenFileDialog ofd = new();
-                ofd.Filter = "Excel File (*.xls)|*.xls|Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*";
+                ofd.Filter = "Excel Files (*.xlsx)|*.xlsx|Excel File (*.xls)|*.xls|All Files (*.*)|*.*";
                 if (ofd.ShowDialog() == true)
                 {
                     workloadPath = ofd.FileName;
