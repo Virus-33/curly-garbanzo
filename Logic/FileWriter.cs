@@ -5,6 +5,7 @@ using OfficeOpenXml;
 using OfficeOpenXml.Style;
 using System.Linq;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace Logic
 {
@@ -39,6 +40,10 @@ namespace Logic
                 int CountIntramuralGroups = report.intramuralGroups.Count;
                 int CountAbsentiaGroups = report.absentiaGroups.Count;
 
+                if (CountIntramuralGroups == 0)
+                {
+                    throw new Exception();
+                }
                 // Добавление нового листа
                 ExcelWorksheet worksheet = package.Workbook.Worksheets.Add("Лист1");
 
@@ -70,13 +75,39 @@ namespace Logic
 
                     for (int j = 3; j < 17; j++)
                     {
-                        foreach (KeyValuePair<string, byte> element in currentGroup.workload)
+                        string NameOfCell = Convert.ToString(worksheet.Cells[8, j].Value);
+                        switch (NameOfCell)
+                        {
+                            case "Лекции":
+                                if (currentGroup.workload.Keys.Contains(""))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload[""]), 12);
+                                break;
+                            case "Экзамены":
+                                if (currentGroup.workload.Keys.Contains("Э"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Э"]), 12);
+                                break;
+                            case "Зачёты":
+                                if (currentGroup.workload.Keys.Contains("З"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["З"]), 12);
+                                break;
+                            case "Практика":
+                                if (currentGroup.workload.Keys.Contains("Пр"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Пр"]), 12);
+                                break;
+                            case "ГЭК":
+                                if (currentGroup.workload.Keys.Contains("Г"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Г"]), 12);
+                                break;
+                            default:
+                                break;
+                        }
+                        /*foreach (KeyValuePair<string, byte> element in currentGroup.workload)
                         {
                             if (Convert.ToString(worksheet.Cells[8, j]) == element.Key)
                             {
                                 WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(element.Value), 12);
                             }
-                        }
+                        }*/
                     }
                     CurrentCell++;
                 }
@@ -94,14 +125,41 @@ namespace Logic
 
                     for (int j = 3; j < 17; j++)
                     {
-                        foreach (KeyValuePair<string, byte> element in currentGroup.workload)
+                        string NameOfCell = Convert.ToString(worksheet.Cells[8, j].Value);
+                        switch (NameOfCell)
                         {
-                            if (Convert.ToString(worksheet.Cells[8, j]) == element.Key)
-                            {
-                                WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(element.Value), 12);
-                            }
+                            case "Лекции":
+                                if (currentGroup.workload.Keys.Contains(""))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload[""]), 12);
+                                break;
+                            case "Экзамены":
+                                if (currentGroup.workload.Keys.Contains("Э"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Э"]), 12);
+                                break;
+                            case "Зачёты":
+                                if (currentGroup.workload.Keys.Contains("З"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["З"]), 12);
+                                break;
+                            case "Практика":
+                                if (currentGroup.workload.Keys.Contains("Пр"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Пр"]), 12);
+                                break;
+                            case "ГЭК":
+                                if (currentGroup.workload.Keys.Contains("Г"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Г"]), 12);
+                                break;
+                            default:
+                                break;
                         }
-                    }
+
+                                /*foreach (KeyValuePair<string, byte> element in currentGroup.workload)
+                                {
+                                    if (Convert.ToString(worksheet.Cells[8, j]) == element.Key)
+                                    {
+                                        WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(element.Value), 12);
+                                    }
+                                }*/
+                        }
                     CurrentCell++;
                 }
                 WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.absentiaSummary), 12);
