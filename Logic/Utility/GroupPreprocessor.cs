@@ -29,11 +29,15 @@ namespace Logic.Utility
                 {
                     if (g1.code == g2.code)
                     {
-                        double temp = Convert.ToDouble(g1.workload["Э"]) / 2;
-                        g1.workload.Add("З", (byte)Math.Floor(temp));
-                        g1.workload["Э"] = (byte)Math.Ceiling(temp);
+                        if (g1.workload.Keys.Contains("Э"))
+                        {
+                            double temp = Convert.ToDouble(g1.workload["Э"]) / 2;
+                            g1.workload.Add("З", (byte)Math.Floor(temp));
+                            g1.workload["Э"] = (byte)Math.Ceiling(temp);
+                        }
 
                         res.Add(new Group(code: g2.code, grade: g2.grade, course: g2.course, type: g2.type,load: g1.workload));
+                        break;
                     }
                 }
             }
@@ -67,6 +71,25 @@ namespace Logic.Utility
             }
 
             group.code = res;
+        }
+
+        public static void Summator(Group group)
+        {
+            ref var shortcut = ref group.workload;
+            shortcut.Add("Пр", 0);
+
+            if (shortcut.Keys.Contains("У"))
+            {
+                shortcut["П"] += shortcut["У"];
+            }
+            if (shortcut.Keys.Contains("Пд"))
+            {
+                shortcut["П"] += shortcut["Пд"];
+            }
+            if (shortcut.Keys.Contains("П"))
+            {
+                shortcut["П"] += shortcut["П"];
+            }
         }
 
         public static void GenerateCode(Group group)
