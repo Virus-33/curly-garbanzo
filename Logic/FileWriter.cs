@@ -68,7 +68,7 @@ namespace Logic
 
                 for (int j = 3; j < 17; j++)
                 {
-                    foreach (KeyValuePair<string, int> element in currentGroup.workload)
+                    foreach (KeyValuePair<string, byte> element in currentGroup.workload)
                     {
                         if (Convert.ToString(worksheet.Cells[8, j]) == element.Key)
                         {
@@ -89,7 +89,7 @@ namespace Logic
 
                 for (int j = 3; j < 17; j++)
                 {
-                    foreach (KeyValuePair<string, int> element in currentGroup.workload)
+                    foreach (KeyValuePair<string, byte> element in currentGroup.workload)
                     {
                         if (Convert.ToString(worksheet.Cells[8, j]) == element.Key)
                         {

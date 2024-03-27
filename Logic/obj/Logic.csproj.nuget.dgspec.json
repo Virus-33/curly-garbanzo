@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GitProj\\curly-garbanzo\\Logic\\Logic.csproj": {}
+    "G:\\Kino\\curly-garbanzo\\Logic\\Logic.csproj": {}
   },
   "projects": {
-    "C:\\GitProj\\curly-garbanzo\\Logic\\Logic.csproj": {
+    "G:\\Kino\\curly-garbanzo\\Logic\\Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitProj\\curly-garbanzo\\Logic\\Logic.csproj",
+        "projectUniqueName": "G:\\Kino\\curly-garbanzo\\Logic\\Logic.csproj",
         "projectName": "Logic",
-        "projectPath": "C:\\GitProj\\curly-garbanzo\\Logic\\Logic.csproj",
-        "packagesPath": "C:\\Users\\ileva\\.nuget\\packages\\",
-        "outputPath": "C:\\GitProj\\curly-garbanzo\\Logic\\obj\\",
+        "projectPath": "G:\\Kino\\curly-garbanzo\\Logic\\Logic.csproj",
+        "packagesPath": "C:\\Users\\Professional\\.nuget\\packages\\",
+        "outputPath": "G:\\Kino\\curly-garbanzo\\Logic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ileva\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Professional\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -39,15 +39,28 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.100.0, )"
+            },
             "EPPlus": {
               "target": "Package",
               "version": "[7.0.9, )"
+            },
+            "NPOI": {
+              "target": "Package",
+              "version": "[2.6.2, )"
             }
           },
           "imports": [
@@ -66,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.313\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

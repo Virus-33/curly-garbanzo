@@ -1,9 +1,13 @@
 ﻿using Logic;
 using Logic.Utility;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Windows;
 
+
+#nullable disable
 namespace IS.ViewModels
 {
     /// <summary>
@@ -11,7 +15,20 @@ namespace IS.ViewModels
     /// </summary>
     public class MainVewModel : INotifyPropertyChanged
     {
-        public DateTime month { get; set; }
+        DateTime month;
+        public DateTime Month
+        {
+            get
+            {
+                return month;
+            }
+            set
+            {
+                month = value;
+                OnPropertyChanged(nameof(Month));
+            }
+        }
+
         public string Teacher
         {
             get
@@ -25,11 +42,28 @@ namespace IS.ViewModels
             }
         }
 
+        readonly Dictionary<int, string> kvp = new()
+        {
+            {1, "Январь" },
+            {2, "Февраль" },
+            {3, "Март" },
+            {4, "Апрель" },
+            {5, "Май" },
+            {6, "Июнь" },
+            {7, "Июль" },
+            {8, "Август" },
+            {9, "Сентябрь" },
+            {10, "Октябрь" },
+            {11, "Ноябрь" },
+            {12, "Декабрь" }
+
+        };
+
         string teacher;
         string calendarPath;
         string workloadPath;
 
-        string outputPath;
+        readonly string outputPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
         Report Result { get; set; }
 
@@ -80,29 +114,49 @@ namespace IS.ViewModels
 
         public MainVewModel()
         {
-
+            month = new();
         }
 
         public void LoadCalendar()
         {
-            // TODO: Add logic for path retrieving BEFORE other actions
-            calendarData = CalendarParser.Parse(calendarPath);
+            OpenFileDialog ofd = new();
+            ofd.Filter = "Excel Files (*.xlsx)|*.xlsx|Excel File (*.xls)|*.xls|All Files (*.*)|*.*";
+            if (ofd.ShowDialog() == true)
+            {
+                calendarPath = ofd.FileName;
+            }
+
+            calendarData = CalendarParser.Parse(calendarPath, kvp[month.Month]);
         }
 
         public void LoadWorkload()
         {
-            // TODO: Add logic for path retrieving BEFORE other actions
-            workloadData = WorkloadParser.Parse(workloadPath);
+            if (Teacher != null)
+            {
+
+                OpenFileDialog ofd = new();
+                ofd.Filter = "Excel Files (*.xlsx)|*.xlsx|Excel File (*.xls)|*.xls|All Files (*.*)|*.*";
+                if (ofd.ShowDialog() == true)
+                {
+                    workloadPath = ofd.FileName;
+                }
+
+                workloadData = WorkloadParser.Parse(workloadPath, Teacher);
+            }
+            else
+            {
+                MessageBox.Show("Имя преподавателя не может быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Stop);
+            }
         }
 
         public void DoTheWork()
         {
-            Report report = ReportShaper.Shape(month, teacher, workloadData, calendarData);
+            // TODO: Change workloadData to preprocessedData
+            Report report = ReportShaper.Shape(month, teacher, workloadData);
         }
 
         public void SaveFile()
         {
-            // TODO: Add logic for path retrieving BEFORE other actions
             FileWriter.WriteFile(Result, outputPath);
         }
 
