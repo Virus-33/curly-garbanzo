@@ -18,6 +18,10 @@ namespace Logic.Utility
             { "38.04.02", "ММЛ" }
         };
 
+        static List<string> a = new()
+        {
+            "", "Пд", "У", "П", "Г", "Э", "Д"
+        };
 
         public static List<Group> MergeByAffiliation(List<Group> planned, List<Group> teacher)
         {
@@ -36,6 +40,8 @@ namespace Logic.Utility
                             g1.workload["Э"] = (byte)Math.Ceiling(temp);
                         }
 
+
+
                         res.Add(new Group(code: g2.code, grade: g2.grade, course: g2.course, type: g2.type,load: g1.workload));
                         break;
                     }
@@ -43,6 +49,35 @@ namespace Logic.Utility
             }
 
             return res;
+        }
+
+        public void FilterLoad(Group calendar, Group planned)
+        {
+            Dictionary<string, byte> b = new() { };
+
+            foreach (KeyValuePair<string, byte> s in calendar.workload)
+            {
+                switch (s.Key) {
+                    case "У":
+                        if (planned.workload.Keys.Contains("Практика")) b.Add("У", s.Value);
+                        break;
+                    case "Пд":
+                        if (planned.workload.Keys.Contains("Практика")) b.Add("Пд", s.Value);
+                        break;
+                    case "П":
+                        if (planned.workload.Keys.Contains("Практика")) b.Add("П", s.Value);
+                        break;
+                    case "":
+                        if (planned.workload.Keys.Contains("Лекции")) b.Add("", s.Value);
+                        break;
+                    case "Г":
+                        if (planned.workload.Keys.Contains("ГЭК")) b.Add("", s.Value);
+                        break;
+                    case "Д":
+                        if (planned.workload.Keys.Contains("Дипломное проектирование")) b.Add("", s.Value);
+                        break;
+                }
+            }
         }
 
         public static void GenerateGroupCode(Group group)
