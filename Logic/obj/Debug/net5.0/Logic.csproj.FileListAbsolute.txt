@@ -11,3 +11,16 @@ G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.dll
 G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\refint\Logic.dll
 G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.pdb
 G:\Kino\curly-garbanzo\Logic\obj\Debug\net5.0\ref\Logic.dll
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\bin\Debug\net5.0\Logic.deps.json
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\bin\Debug\net5.0\Logic.dll
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\bin\Debug\net5.0\Logic.pdb
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.csproj.AssemblyReference.cache
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.AssemblyInfoInputs.cache
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.AssemblyInfo.cs
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.csproj.CoreCompileInputs.cache
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.sourcelink.json
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.dll
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\refint\Logic.dll
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.pdb
+C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\ref\Logic.dll

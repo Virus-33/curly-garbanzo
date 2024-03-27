@@ -102,14 +102,14 @@ namespace IS.ViewModels
 
         public void LoadCalendar()
         {
-            OpenFileDialog ofd = new();
-            ofd.Filter = "Excel File (*.xls)|*.xls|Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*";
-            if (ofd.ShowDialog() == true)
-            {
-                workloadPath = ofd.FileName;
-            }
+            //OpenFileDialog ofd = new();
+            //ofd.Filter = "Excel File (*.xls)|*.xls|Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*";
+            //if (ofd.ShowDialog() == true)
+            //{
+            //    calendarPath = ofd.FileName;
+            //}
 
-            calendarData = CalendarParser.Parse(calendarPath);
+            calendarData = CalendarParser.Parse("asdasdadsa");
         }
 
         public void LoadWorkload()

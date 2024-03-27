@@ -22,18 +22,15 @@ namespace Logic
     /// </summary>
     public class Group
     {
-        public string code;
+        public string code;//поля должны быть приватными 
         public GroupGrade grade;
         public int course;
         public GroupType type;
         public Dictionary<string, int> workload;
 
-        public Group()
-        {
+        public Group(){}
 
-        }
-
-        public Group(string code, GroupGrade grade, int course, GroupType type, Dictionary<string, int> load)
+        public Group(int course, Dictionary<string, int> load, string code, GroupGrade grade , GroupType type ) //Поменяете когда будете знать откуда брать эти данные
         {
             this.code = code;
             this.grade = grade;

@@ -18,7 +18,7 @@ namespace Logic.Utility
                 {
                     if (g1.code == g2.code)
                     {
-                        res.Add(new Group(g2.code, g2.grade, g2.course, g2.type, g1.workload));
+                        res.Add(new Group(code: g2.code, grade: g2.grade, course: g2.course, type: g2.type,load: g1.workload));
                     }
                 }
             }

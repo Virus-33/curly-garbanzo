@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = IS
-build_property.ProjectDir = G:\Kino\curly-garbanzo\IS\
+build_property.ProjectDir = C:\Users\kurbatov\source\repos\curly-garbanzo\IS\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
