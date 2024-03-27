@@ -80,15 +80,15 @@ namespace Logic.Utility
 
             if (shortcut.Keys.Contains("У"))
             {
-                shortcut["П"] += shortcut["У"];
+                shortcut["Пр"] += shortcut["У"];
             }
             if (shortcut.Keys.Contains("Пд"))
             {
-                shortcut["П"] += shortcut["Пд"];
+                shortcut["Пр"] += shortcut["Пд"];
             }
             if (shortcut.Keys.Contains("П"))
             {
-                shortcut["П"] += shortcut["П"];
+                shortcut["Пр"] += shortcut["П"];
             }
         }
 
