@@ -42,7 +42,7 @@ namespace Logic.Utility
 
 
 
-                        res.Add(new Group(code: g2.code, grade: g2.grade, course: g2.course, type: g2.type,load: g1.workload));
+                        res.Add(new Group(code: g2.code, grade: g2.grade, course: g2.course, type: g2.type, load: FilterLoad(g1, g2)));
                         break;
                     }
                 }
@@ -51,7 +51,7 @@ namespace Logic.Utility
             return res;
         }
 
-        public void FilterLoad(Group calendar, Group planned)
+        static Dictionary<string, byte> FilterLoad(Group calendar, Group planned)
         {
             Dictionary<string, byte> b = new() { };
 
@@ -71,13 +71,31 @@ namespace Logic.Utility
                         if (planned.workload.Keys.Contains("Лекции")) b.Add("", s.Value);
                         break;
                     case "Г":
-                        if (planned.workload.Keys.Contains("ГЭК")) b.Add("", s.Value);
+                        if (planned.workload.Keys.Contains("ГЭК")) b.Add("Г", s.Value);
                         break;
                     case "Д":
                         if (planned.workload.Keys.Contains("Дипломное проектирование")) b.Add("", s.Value);
                         break;
                 }
             }
+
+            foreach (KeyValuePair<string, byte> s in planned.workload)
+            {
+                switch (s.Key)
+                {
+                    case "Cеминарские занятия":
+                        if (calendar.workload.Keys.Contains("")) b.Add("", s.Value);
+                        break;
+                    case "Заче-\nты":
+                        if (calendar.workload.Keys.Contains("Э")) b.Add("Э", s.Value);
+                        break;
+                    case "Экза- ме-\nны":
+                        if (calendar.workload.Keys.Contains("Э")) b.Add("Э", s.Value);
+                        break;
+                }
+            }
+
+            return b;
         }
 
         public static void GenerateGroupCode(Group group)
