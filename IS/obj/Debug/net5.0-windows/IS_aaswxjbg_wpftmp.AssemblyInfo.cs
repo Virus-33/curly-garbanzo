@@ -11,13 +11,15 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Logic")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("IS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d513a2f89055fca6c88e448197279fe5196a555")]
-[assembly: System.Reflection.AssemblyProductAttribute("Logic")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Logic")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e72ce220a7558d7914dbb8c567a5f6ecfdff1466")]
+[assembly: System.Reflection.AssemblyProductAttribute("IS")]
+[assembly: System.Reflection.AssemblyTitleAttribute("IS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Runtime.Versioning.TargetPlatformAttribute("Windows7.0")]
+[assembly: System.Runtime.Versioning.SupportedOSPlatformAttribute("Windows7.0")]
 
 // Создано классом WriteCodeFragment MSBuild.
 

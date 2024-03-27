@@ -24,3 +24,16 @@ C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.dll
 C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\refint\Logic.dll
 C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.pdb
 C:\Users\kurbatov\Source\Repos\curly-garbanzo\Logic\obj\Debug\net5.0\ref\Logic.dll
+C:\GitProj\curly-garbanzo\Logic\bin\Debug\net5.0\Logic.deps.json
+C:\GitProj\curly-garbanzo\Logic\bin\Debug\net5.0\Logic.dll
+C:\GitProj\curly-garbanzo\Logic\bin\Debug\net5.0\Logic.pdb
+C:\GitProj\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.csproj.AssemblyReference.cache
+C:\GitProj\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\GitProj\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.AssemblyInfoInputs.cache
+C:\GitProj\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.AssemblyInfo.cs
+C:\GitProj\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.csproj.CoreCompileInputs.cache
+C:\GitProj\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.sourcelink.json
+C:\GitProj\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.dll
+C:\GitProj\curly-garbanzo\Logic\obj\Debug\net5.0\refint\Logic.dll
+C:\GitProj\curly-garbanzo\Logic\obj\Debug\net5.0\Logic.pdb
+C:\GitProj\curly-garbanzo\Logic\obj\Debug\net5.0\ref\Logic.dll
