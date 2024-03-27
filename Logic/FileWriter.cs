@@ -91,7 +91,7 @@ namespace Logic
                                     WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["З"]), 12);
                                 break;
                             case "Практика":
-                                if (currentGroup.workload.Keys.Contains("Пр"))
+                                if (currentGroup.workload.Keys.Contains("Пр") && Convert.ToInt16(currentGroup.workload["Пр"])!=0)
                                     WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Пр"]), 12);
                                 break;
                             case "ГЭК":
@@ -166,9 +166,12 @@ namespace Logic
                 CurrentCell++;
             }
 
-
+            
+            //Всего за месяц
             WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.monthlySummary), 12);
             CurrentCell++;
+
+
 
             WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.yearlySummary), 12);
             CurrentCell= CurrentCell + 4;

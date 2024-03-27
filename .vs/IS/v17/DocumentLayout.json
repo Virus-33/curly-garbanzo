@@ -1,46 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "G:\\Kino\\curly-garbanzo\\",
+  "WorkspaceRootPath": "C:\\GitProj\\curly-garbanzo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\utility\\grouppreprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\utility\\grouppreprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\filewriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|c:\\gitproj\\curly-garbanzo\\logic\\filewriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\filewriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D562A7D0-FE6F-41E4-94D8-DA971222C052}|IS\\IS.csproj|g:\\kino\\curly-garbanzo\\is\\viewmodels\\mainvewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D562A7D0-FE6F-41E4-94D8-DA971222C052}|IS\\IS.csproj|c:\\gitproj\\curly-garbanzo\\is\\viewmodels\\mainvewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D562A7D0-FE6F-41E4-94D8-DA971222C052}|IS\\IS.csproj|solutionrelative:is\\viewmodels\\mainvewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|c:\\gitproj\\curly-garbanzo\\logic\\utility\\grouppreprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\utility\\grouppreprocessor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\calendarparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\calendarparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\workloadparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\workloadparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\reportshaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\reportshaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D562A7D0-FE6F-41E4-94D8-DA971222C052}|IS\\IS.csproj|g:\\kino\\curly-garbanzo\\is\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D562A7D0-FE6F-41E4-94D8-DA971222C052}|IS\\IS.csproj|solutionrelative:is\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|c:\\gitproj\\curly-garbanzo\\logic\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|g:\\kino\\curly-garbanzo\\logic\\utility\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|c:\\gitproj\\curly-garbanzo\\logic\\calendarparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\calendarparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|c:\\gitproj\\curly-garbanzo\\logic\\utility\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\utility\\extensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|c:\\gitproj\\curly-garbanzo\\logic\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\report.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|c:\\gitproj\\curly-garbanzo\\logic\\workloadparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\workloadparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|c:\\gitproj\\curly-garbanzo\\logic\\reportshaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9DFF4E67-BDCA-4745-8EB9-6A9DF1B21E5F}|Logic\\Logic.csproj|solutionrelative:logic\\reportshaper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D562A7D0-FE6F-41E4-94D8-DA971222C052}|IS\\IS.csproj|c:\\gitproj\\curly-garbanzo\\is\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D562A7D0-FE6F-41E4-94D8-DA971222C052}|IS\\IS.csproj|solutionrelative:is\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,50 +50,52 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "MainWindow.xaml",
-              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\IS\\MainWindow.xaml",
+              "DocumentMoniker": "C:\\GitProj\\curly-garbanzo\\IS\\MainWindow.xaml",
               "RelativeDocumentMoniker": "IS\\MainWindow.xaml",
-              "ToolTip": "G:\\Kino\\curly-garbanzo\\IS\\MainWindow.xaml",
+              "ToolTip": "C:\\GitProj\\curly-garbanzo\\IS\\MainWindow.xaml",
               "RelativeToolTip": "IS\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2024-03-27T07:24:55.516Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 5,
               "Title": "Extensions.cs",
-              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\Utility\\Extensions.cs",
+              "DocumentMoniker": "C:\\GitProj\\curly-garbanzo\\Logic\\Utility\\Extensions.cs",
               "RelativeDocumentMoniker": "Logic\\Utility\\Extensions.cs",
-              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\Utility\\Extensions.cs",
+              "ToolTip": "C:\\GitProj\\curly-garbanzo\\Logic\\Utility\\Extensions.cs",
               "RelativeToolTip": "Logic\\Utility\\Extensions.cs",
               "ViewState": "AQIAAAwAAAAAAAAAAAAAABkAAAA5AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T04:57:42.577Z"
+              "WhenOpened": "2024-03-27T04:57:42.577Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "CalendarParser.cs",
-              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\CalendarParser.cs",
+              "DocumentMoniker": "C:\\GitProj\\curly-garbanzo\\Logic\\CalendarParser.cs",
               "RelativeDocumentMoniker": "Logic\\CalendarParser.cs",
-              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\CalendarParser.cs",
+              "ToolTip": "C:\\GitProj\\curly-garbanzo\\Logic\\CalendarParser.cs",
               "RelativeToolTip": "Logic\\CalendarParser.cs",
               "ViewState": "AQIAAAoAAAAAAAAAAAAqwB4AAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-27T04:13:44.07Z"
+              "WhenOpened": "2024-03-27T04:13:44.07Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "WorkloadParser.cs",
-              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\WorkloadParser.cs",
+              "DocumentMoniker": "C:\\GitProj\\curly-garbanzo\\Logic\\WorkloadParser.cs",
               "RelativeDocumentMoniker": "Logic\\WorkloadParser.cs",
-              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\WorkloadParser.cs",
+              "ToolTip": "C:\\GitProj\\curly-garbanzo\\Logic\\WorkloadParser.cs",
               "RelativeToolTip": "Logic\\WorkloadParser.cs",
               "ViewState": "AQIAAB8AAAAAAAAAAAArwDEAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -101,73 +103,76 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FileWriter.cs",
-              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\FileWriter.cs",
+              "DocumentMoniker": "C:\\GitProj\\curly-garbanzo\\Logic\\FileWriter.cs",
               "RelativeDocumentMoniker": "Logic\\FileWriter.cs",
-              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\FileWriter.cs",
+              "ToolTip": "C:\\GitProj\\curly-garbanzo\\Logic\\FileWriter.cs",
               "RelativeToolTip": "Logic\\FileWriter.cs",
-              "ViewState": "AQIAADoAAAAAAAAAAAAqwFYAAABnAAAA",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAAwF8AAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-24T09:01:35.163Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 3,
               "Title": "Group.cs",
-              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\Group.cs",
+              "DocumentMoniker": "C:\\GitProj\\curly-garbanzo\\Logic\\Group.cs",
               "RelativeDocumentMoniker": "Logic\\Group.cs",
-              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\Group.cs",
+              "ToolTip": "C:\\GitProj\\curly-garbanzo\\Logic\\Group.cs",
               "RelativeToolTip": "Logic\\Group.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAgAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-24T09:01:34.608Z"
+              "WhenOpened": "2024-03-24T09:01:34.608Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "GroupPreprocessor.cs",
-              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\Utility\\GroupPreprocessor.cs",
+              "DocumentMoniker": "C:\\GitProj\\curly-garbanzo\\Logic\\Utility\\GroupPreprocessor.cs",
               "RelativeDocumentMoniker": "Logic\\Utility\\GroupPreprocessor.cs",
-              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\Utility\\GroupPreprocessor.cs",
+              "ToolTip": "C:\\GitProj\\curly-garbanzo\\Logic\\Utility\\GroupPreprocessor.cs",
               "RelativeToolTip": "Logic\\Utility\\GroupPreprocessor.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAgwDQAAAAAAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAAACMAAAAYAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-24T05:14:17.853Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "MainVewModel.cs",
-              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\IS\\ViewModels\\MainVewModel.cs",
+              "DocumentMoniker": "C:\\GitProj\\curly-garbanzo\\IS\\ViewModels\\MainVewModel.cs",
               "RelativeDocumentMoniker": "IS\\ViewModels\\MainVewModel.cs",
-              "ToolTip": "G:\\Kino\\curly-garbanzo\\IS\\ViewModels\\MainVewModel.cs",
+              "ToolTip": "C:\\GitProj\\curly-garbanzo\\IS\\ViewModels\\MainVewModel.cs",
               "RelativeToolTip": "IS\\ViewModels\\MainVewModel.cs",
-              "ViewState": "AQIAAFkAAAAAAAAAAAAqwG0AAAA0AAAA",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAwG0AAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-23T08:04:21.912Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Report.cs",
-              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\Report.cs",
-              "RelativeDocumentMoniker": "Logic\\Report.cs",
-              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\Report.cs",
-              "RelativeToolTip": "Logic\\Report.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-23T08:04:21.917Z"
+              "WhenOpened": "2024-03-23T08:04:21.912Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
+              "Title": "Report.cs",
+              "DocumentMoniker": "C:\\GitProj\\curly-garbanzo\\Logic\\Report.cs",
+              "RelativeDocumentMoniker": "Logic\\Report.cs",
+              "ToolTip": "C:\\GitProj\\curly-garbanzo\\Logic\\Report.cs",
+              "RelativeToolTip": "Logic\\Report.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-23T08:04:21.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "ReportShaper.cs",
-              "DocumentMoniker": "G:\\Kino\\curly-garbanzo\\Logic\\ReportShaper.cs",
+              "DocumentMoniker": "C:\\GitProj\\curly-garbanzo\\Logic\\ReportShaper.cs",
               "RelativeDocumentMoniker": "Logic\\ReportShaper.cs",
-              "ToolTip": "G:\\Kino\\curly-garbanzo\\Logic\\ReportShaper.cs",
+              "ToolTip": "C:\\GitProj\\curly-garbanzo\\Logic\\ReportShaper.cs",
               "RelativeToolTip": "Logic\\ReportShaper.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAAQwEIAAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
