@@ -46,10 +46,12 @@ namespace Logic
             IRow headerRow = null;
             IRow subheaderRow = null;
             XSSFWorkbook workbook;
+
             using (var fileStream = new FileStream(path, FileMode.Open, FileAccess.Read))
             {
                 workbook = new XSSFWorkbook(fileStream);
             }
+
             var sheet = workbook.GetSheetAt(0);
             foreach (IRow row in sheet)
             {
@@ -110,12 +112,13 @@ namespace Logic
 
                 group.type = groupType.ToEnum();
 
-                Dictionary<string, int> workLoad = new Dictionary<string, int>();
+                Dictionary<string, byte> workLoad = new Dictionary<string, byte>();
                 foreach (var cell in cells)
                 {
-                    workLoad.Add(headerRow.Cells.Find(x => x.Address.Column == cell.Address.Column).ToFullForm(headerRow), Convert.ToInt32(cell.NumericCellValue));
+                    workLoad.Add(headerRow.Cells.Find(x => x.Address.Column == cell.Address.Column).ToFullForm(headerRow), Convert.ToByte(cell.NumericCellValue));
                 }
                 group.workload = workLoad;
+                GroupPreprocessor.GenerateCode(group);
                 groups.Add(group);
             }
             return groups;

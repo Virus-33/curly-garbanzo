@@ -6527,23 +6527,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kurbatov\\.nuget\\packages\\": {},
+    "C:\\Users\\Professional\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kurbatov\\source\\repos\\curly-garbanzo\\IS\\IS.csproj",
+      "projectUniqueName": "G:\\Kino\\curly-garbanzo\\IS\\IS.csproj",
       "projectName": "IS",
-      "projectPath": "C:\\Users\\kurbatov\\source\\repos\\curly-garbanzo\\IS\\IS.csproj",
-      "packagesPath": "C:\\Users\\kurbatov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kurbatov\\source\\repos\\curly-garbanzo\\IS\\obj\\",
+      "projectPath": "G:\\Kino\\curly-garbanzo\\IS\\IS.csproj",
+      "packagesPath": "C:\\Users\\Professional\\.nuget\\packages\\",
+      "outputPath": "G:\\Kino\\curly-garbanzo\\IS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\kurbatov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Professional\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6559,8 +6559,8 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
-            "C:\\Users\\kurbatov\\source\\repos\\curly-garbanzo\\Logic\\Logic.csproj": {
-              "projectPath": "C:\\Users\\kurbatov\\source\\repos\\curly-garbanzo\\Logic\\Logic.csproj"
+            "G:\\Kino\\curly-garbanzo\\Logic\\Logic.csproj": {
+              "projectPath": "G:\\Kino\\curly-garbanzo\\Logic\\Logic.csproj"
             }
           }
         }
@@ -6569,6 +6569,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -6593,7 +6598,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

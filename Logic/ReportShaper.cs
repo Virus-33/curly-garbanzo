@@ -52,7 +52,7 @@ namespace Logic
             shaper.otherWorks = new List<string>();
             foreach (Group group in teacherWorkload)
             {
-                foreach (KeyValuePair<string, int> workloadItem in group.workload)
+                foreach (KeyValuePair<string, byte> workloadItem in group.workload)
                 {
                     switch (workloadItem.Key)
                     {

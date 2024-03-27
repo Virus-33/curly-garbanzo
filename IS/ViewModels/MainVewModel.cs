@@ -42,6 +42,23 @@ namespace IS.ViewModels
             }
         }
 
+        readonly Dictionary<int, string> kvp = new()
+        {
+            {1, "Январь" },
+            {2, "Февраль" },
+            {3, "Март" },
+            {4, "Апрель" },
+            {5, "Май" },
+            {6, "Июнь" },
+            {7, "Июль" },
+            {8, "Август" },
+            {9, "Сентябрь" },
+            {10, "Октябрь" },
+            {11, "Ноябрь" },
+            {12, "Декабрь" }
+
+        };
+
         string teacher;
         string calendarPath;
         string workloadPath;
@@ -102,14 +119,14 @@ namespace IS.ViewModels
 
         public void LoadCalendar()
         {
-            //OpenFileDialog ofd = new();
-            //ofd.Filter = "Excel File (*.xls)|*.xls|Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*";
-            //if (ofd.ShowDialog() == true)
-            //{
-            //    calendarPath = ofd.FileName;
-            //}
+            OpenFileDialog ofd = new();
+            ofd.Filter = "Excel File (*.xls)|*.xls|Excel Files (*.xlsx)|*.xlsx|All Files (*.*)|*.*";
+            if (ofd.ShowDialog() == true)
+            {
+                calendarPath = ofd.FileName;
+            }
 
-            calendarData = CalendarParser.Parse("asdasdadsa");
+            calendarData = CalendarParser.Parse(calendarPath, kvp[month.Month]);
         }
 
         public void LoadWorkload()

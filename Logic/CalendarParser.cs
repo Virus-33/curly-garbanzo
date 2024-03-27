@@ -4,6 +4,8 @@ using System.Linq;
 using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Bibliography;
 using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Vml.Spreadsheet;
+using Logic.Utility;
 using MathNet.Numerics;
 using NPOI.OpenXmlFormats.Dml.Diagram;
 using NPOI.POIFS.Storage;
@@ -22,9 +24,11 @@ namespace Logic
         /// </summary>
         /// <param name="path">Путь к файлу с календарным учебным графиком</param>
         /// <returns>Список, состоящий из направлений и нагрузок</returns>
-        public static List<Group> Parse(string pathw, string month = "Январь") //ПОМЕНЯЙТЕ ДЕЛАЛ ДЛЯ ТЕСТА
+        public static List<Group> Parse(string path, string month) //ПОМЕНЯЙТЕ ДЕЛАЛ ДЛЯ ТЕСТА
         {
-            var wb = new XLWorkbook("C:\\Users\\kurbatov\\Downloads\\grafikilp.xlsx");
+            List<Group> res = new();
+
+            var wb = new XLWorkbook(path);
             wb.Worksheets.Delete(1);//Удаляем страницу без таблиц
             List<List<Month>> monthsFromAllTables = new(); //месяца для каждой таблицы
             List<List<int>> facultsTitleRows = new(); //плашки с названием специальности для каждой таблицы (их координата по вертикали)
@@ -68,13 +72,25 @@ namespace Logic
                                 loadOneCourse[courseLoads.Cell(day.row, day.col).GetString()] += 1;
                             }
                         }
+
                         FacultLoad facultLoad = new( (byte)Int32.Parse(currentWS.Cell(startRowInCourse + 1, 1).GetString()), currentWS.Cell(oneTableFacults[facult], 1).GetString() ,loadOneCourse);
                         loadsForAllGroups.Add(facultLoad);
                     }
                 }
             }
 
-            return null;
+            foreach (FacultLoad fl in loadsForAllGroups)
+            {
+                Group temp = new();
+                string[] tempS = fl.facultName.Split(' ');
+                temp.course = fl.course;
+                temp.workload = fl.load;
+                temp.code = tempS[0];
+                GroupPreprocessor.GenerateGroupCode(temp);
+                res.Add(temp);
+            }
+
+            return res;
         }
 
         private static List<int> FindFacults(IXLWorksheet worksheet)
@@ -128,7 +144,7 @@ namespace Logic
                         {
                             currentMonth.AddCoordinate(new Coordinate(row, col));
                             break;
-                        }  
+                        }
                         else
                         if (col != lastCol && worksheet.Cell(row, col).GetString() == "")
                         {

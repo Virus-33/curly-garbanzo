@@ -134,3 +134,9 @@ C:\Users\kurbatov\source\repos\curly-garbanzo\IS\bin\Debug\net5.0-windows\ExcelN
 C:\Users\kurbatov\source\repos\curly-garbanzo\IS\bin\Debug\net5.0-windows\Irony.dll
 C:\Users\kurbatov\source\repos\curly-garbanzo\IS\bin\Debug\net5.0-windows\System.IO.Packaging.dll
 C:\Users\kurbatov\source\repos\curly-garbanzo\IS\bin\Debug\net5.0-windows\XLParser.dll
+G:\Kino\curly-garbanzo\IS\bin\Debug\net5.0-windows\ClosedXML.dll
+G:\Kino\curly-garbanzo\IS\bin\Debug\net5.0-windows\DocumentFormat.OpenXml.dll
+G:\Kino\curly-garbanzo\IS\bin\Debug\net5.0-windows\ExcelNumberFormat.dll
+G:\Kino\curly-garbanzo\IS\bin\Debug\net5.0-windows\Irony.dll
+G:\Kino\curly-garbanzo\IS\bin\Debug\net5.0-windows\System.IO.Packaging.dll
+G:\Kino\curly-garbanzo\IS\bin\Debug\net5.0-windows\XLParser.dll
