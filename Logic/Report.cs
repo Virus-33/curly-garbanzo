@@ -12,14 +12,7 @@ namespace Logic
         public int totalWorkload;
         public List<Group> intramuralGroups;
         public List<Group> absentiaGroups;
-        public int intramuralSummary;
-        public int absentiaSummary;
-        public int monthlySummary;
-        public int yearlySummary;
-        public List<string> methodicalWorks;
-        public List<string> scientificWorks;
-        public List<string> pedagogicalWorks;
-        public List<string> otherWorks;
+        
 
         public Report()
         {
