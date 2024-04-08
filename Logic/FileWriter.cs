@@ -65,6 +65,8 @@ namespace Logic
 
             int CurrentCell = 9;
 
+            int IntramuralTotalCoordinate = 0;
+            int AbsetiaTotalCoordinate = 0;
             if (report.intramuralGroups.Count != 0)
             {
                 //очники
@@ -79,39 +81,99 @@ namespace Logic
                         switch (NameOfCell)
                         {
                             case "Лекции":
-                                if (currentGroup.workload.Keys.Contains(""))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload[""]), 12);
+                                if (currentGroup.workload.Keys.Contains("Лекция"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Лекция"]), 12);
                                 break;
-                            case "Экзамены":
-                                if (currentGroup.workload.Keys.Contains("Э"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Э"]), 12);
+                            case "Практ. зан.":
+                                if (currentGroup.workload.Keys.Contains("Практика"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Практика"]), 12);
+                                break;
+                            case "Лаб. занятия":
+                                if (currentGroup.workload.Keys.Contains("Лабораторная"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Лабораторная"]), 12);
+                                break;
+                            case "Консульт.":
+                                if (currentGroup.workload.Keys.Contains("Консультация"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Консультация"]), 12);
                                 break;
                             case "Зачёты":
-                                if (currentGroup.workload.Keys.Contains("З"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["З"]), 12);
+                                if (currentGroup.workload.Keys.Contains("Зачет"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Зачет"]), 12);
                                 break;
-                            case "Практика":
-                                if (currentGroup.workload.Keys.Contains("Пр") && Convert.ToInt16(currentGroup.workload["Пр"])!=0)
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Пр"]), 12);
+                            case "Экзамены":
+                                if (currentGroup.workload.Keys.Contains("Экзамен"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Экзамен"]), 12);
+                                break;
+                            case "Курс. пр.":
+                                if (currentGroup.workload.Keys.Contains("Курсовая работа"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Курсовая работа"]), 12);
+                                break;
+                            case "РГР":
+                                if (currentGroup.workload.Keys.Contains("РГР, рефератб эссе"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["РГР, рефератб эссе"]), 12);
                                 break;
                             case "ГЭК":
-                                if (currentGroup.workload.Keys.Contains("Г"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Г"]), 12);
+                                if (currentGroup.workload.Keys.Contains("ГЭК"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["ГЭК"]), 12);
                                 break;
                             default:
                                 break;
-                        }
-                        /*foreach (KeyValuePair<string, byte> element in currentGroup.workload)
-                        {
-                            if (Convert.ToString(worksheet.Cells[8, j]) == element.Key)
-                            {
-                                WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(element.Value), 12);
-                            }
-                        }*/
+                        }                        
                     }
                     CurrentCell++;
                 }
-                WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.intramuralSummary), 12);
+
+                //Итог Очников
+                IntramuralTotalCoordinate = CurrentCell;
+                for (int i = 3; i < 17; i++)
+                {
+                    int CoopCells = CurrentCell - report.intramuralGroups.Count();
+                    switch (i)
+                    {
+                        case 3:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(C{CoopCells}:C{CurrentCell - 1})");
+                            break;
+                        case 4:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(D{CoopCells}:D{CurrentCell - 1})");
+                            break;
+                        case 5:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(E{CoopCells}:E{CurrentCell - 1})");
+                            break;
+                        case 6:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(F{CoopCells}:F{CurrentCell - 1})");
+                            break;
+                        case 7:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(G{CoopCells}:G{CurrentCell - 1})");
+                            break;
+                        case 8:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(H{CoopCells}:H{CurrentCell - 1})");
+                            break;
+                        case 9:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(I{CoopCells}:I{CurrentCell - 1})");
+                            break;
+                        case 10:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(J{CoopCells}:J{CurrentCell - 1})");
+                            break;
+                        case 11:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(K{CoopCells}:K{CurrentCell - 1})");
+                            break;
+                        case 12:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(L{CoopCells}:L{CurrentCell - 1})");
+                            break;
+                        case 13:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(M{CoopCells}:M{CurrentCell - 1})");
+                            break;
+                        case 14:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(N{CoopCells}:N{CurrentCell - 1})");
+                            break;
+                        case 15:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(O{CoopCells}:O{CurrentCell - 1})");
+                            break;
+                        case 16:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(P{CoopCells}:P{CurrentCell - 1})");
+                            break;
+                    }
+                }                
                 CurrentCell++;
             }
 
@@ -129,51 +191,157 @@ namespace Logic
                         switch (NameOfCell)
                         {
                             case "Лекции":
-                                if (currentGroup.workload.Keys.Contains(""))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload[""]), 12);
+                                if (currentGroup.workload.Keys.Contains("Лекция"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Лекция"]), 12);
                                 break;
-                            case "Экзамены":
-                                if (currentGroup.workload.Keys.Contains("Э"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Э"]), 12);
+                            case "Практ. зан.":
+                                if (currentGroup.workload.Keys.Contains("Практика"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Практика"]), 12);
+                                break;
+                            case "Лаб. занятия":
+                                if (currentGroup.workload.Keys.Contains("Лабораторная"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Лабораторная"]), 12);
+                                break;
+                            case "Консульт.":
+                                if (currentGroup.workload.Keys.Contains("Консультация"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Консультация"]), 12);
                                 break;
                             case "Зачёты":
-                                if (currentGroup.workload.Keys.Contains("З"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["З"]), 12);
+                                if (currentGroup.workload.Keys.Contains("Зачет"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Зачет"]), 12);
                                 break;
-                            case "Практика":
-                                if (currentGroup.workload.Keys.Contains("Пр"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Пр"]), 12);
+                            case "Экзамены":
+                                if (currentGroup.workload.Keys.Contains("Экзамен"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Экзамен"]), 12);
+                                break;
+                            case "Курс. пр.":
+                                if (currentGroup.workload.Keys.Contains("Курсовая работа"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Курсовая работа"]), 12);
+                                break;
+                            case "РГР":
+                                if (currentGroup.workload.Keys.Contains("РГР, рефератб эссе"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["РГР, рефератб эссе"]), 12);
                                 break;
                             case "ГЭК":
-                                if (currentGroup.workload.Keys.Contains("Г"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["Г"]), 12);
+                                if (currentGroup.workload.Keys.Contains("ГЭК"))
+                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.workload["ГЭК"]), 12);
                                 break;
                             default:
                                 break;
-                        }
-
-                                /*foreach (KeyValuePair<string, byte> element in currentGroup.workload)
-                                {
-                                    if (Convert.ToString(worksheet.Cells[8, j]) == element.Key)
-                                    {
-                                        WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(element.Value), 12);
-                                    }
-                                }*/
-                        }
+                        }                              
+                    }
                     CurrentCell++;
                 }
-                WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.absentiaSummary), 12);
+
+                //Итоги Заочников
+                AbsetiaTotalCoordinate = CurrentCell;
+                for (int i = 3; i < 17; i++)
+                {
+                    int CoopCells = CurrentCell - report.absentiaGroups.Count();
+                    switch (i)
+                    {
+                        case 3:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(C{CoopCells}:C{CurrentCell - 1})");
+                            break;
+                        case 4:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(D{CoopCells}:D{CurrentCell - 1})");
+                            break;
+                        case 5:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(E{CoopCells}:E{CurrentCell - 1})");
+                            break;
+                        case 6:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(F{CoopCells}:F{CurrentCell - 1})");
+                            break;
+                        case 7:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(G{CoopCells}:G{CurrentCell - 1})");
+                            break;
+                        case 8:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(H{CoopCells}:H{CurrentCell - 1})");
+                            break;
+                        case 9:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(I{CoopCells}:I{CurrentCell - 1})");
+                            break;
+                        case 10:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(J{CoopCells}:J{CurrentCell - 1})");
+                            break;
+                        case 11:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(K{CoopCells}:K{CurrentCell - 1})");
+                            break;
+                        case 12:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(L{CoopCells}:L{CurrentCell - 1})");
+                            break;
+                        case 13:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(M{CoopCells}:M{CurrentCell - 1})");
+                            break;
+                        case 14:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(N{CoopCells}:N{CurrentCell - 1})");
+                            break;
+                        case 15:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(O{CoopCells}:O{CurrentCell - 1})");
+                            break;
+                        case 16:
+                            WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"SUM(P{CoopCells}:P{CurrentCell - 1})");
+                            break;
+                    }
+                }
                 CurrentCell++;
             }
 
-            
+
             //Всего за месяц
-            WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.monthlySummary), 12);
+            for (int i = 3; i < 17; i++)
+            {
+                switch (i)
+                {
+                    case 3:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"C{IntramuralTotalCoordinate}+C{AbsetiaTotalCoordinate}");
+                        break;
+                    case 4:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"D{IntramuralTotalCoordinate}+D{AbsetiaTotalCoordinate}");
+                        break;
+                    case 5:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"E{IntramuralTotalCoordinate}+E{AbsetiaTotalCoordinate}");
+                        break;
+                    case 6:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"F{IntramuralTotalCoordinate}+F{AbsetiaTotalCoordinate}");
+                        break;
+                    case 7:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"G{IntramuralTotalCoordinate}+G{AbsetiaTotalCoordinate}");
+                        break;
+                    case 8:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"H{IntramuralTotalCoordinate}+H{AbsetiaTotalCoordinate}");
+                        break;
+                    case 9:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"I{IntramuralTotalCoordinate}+I{AbsetiaTotalCoordinate}");
+                        break;
+                    case 10:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"J{IntramuralTotalCoordinate}+J{AbsetiaTotalCoordinate}");
+                        break;
+                    case 11:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"K{IntramuralTotalCoordinate}+K{AbsetiaTotalCoordinate}");
+                        break;
+                    case 12:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"L{IntramuralTotalCoordinate}+L{AbsetiaTotalCoordinate}");
+                        break;
+                    case 13:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"M{IntramuralTotalCoordinate}+M{AbsetiaTotalCoordinate}");
+                        break;
+                    case 14:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"N{IntramuralTotalCoordinate}+N{AbsetiaTotalCoordinate})");
+                        break;
+                    case 15:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"O{IntramuralTotalCoordinate}+O{AbsetiaTotalCoordinate}");
+                        break;
+                    case 16:
+                        WriteFormulaInCurrentCell(worksheet.Cells[CurrentCell, i], $"P{IntramuralTotalCoordinate}+P{AbsetiaTotalCoordinate}");
+                        break;
+                }
+            }
             CurrentCell++;
 
 
-
-            WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.yearlySummary), 12);
+            //а этого у нас нет
+            //WriteTextInCurrentCell(worksheet.Cells[$"P{CurrentCell}"], Convert.ToString(report.yearlySummary), 12);
             CurrentCell= CurrentCell + 4;
 
             return worksheet;
@@ -545,6 +713,15 @@ namespace Logic
 
             return cell;
         }
+
+        ExcelRange WriteFormulaInCurrentCell(ExcelRange cell, string Formula)
+        {
+            cell.Formula = Formula;
+
+            return cell;
+        }
+
+
 
 
     }
