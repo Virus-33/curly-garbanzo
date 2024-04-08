@@ -22,21 +22,21 @@ namespace Logic
     /// </summary>
     public class Group
     {
-        public string code;
+        public string Cypher;
         public GroupGrade grade;
         public int course;
         public GroupType type;
-        public Dictionary<string, byte> workload;
+        public Dictionary<string, byte> Workload;
 
         public Group(){}
 
         public Group(int course, Dictionary<string, byte> load, string code, GroupGrade grade , GroupType type )
         {
-            this.code = code;
+            this.Cypher = code;
             this.grade = grade;
             this.course = course;
             this.type = type;
-            workload = load;
+            Workload = load;
         }
     }
 }
