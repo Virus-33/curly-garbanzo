@@ -82,39 +82,42 @@ namespace Logic
                         {
                             case "Лекции":
                                 if (currentGroup.Workload.Keys.Contains("Лекция"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Лекция"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Лекция"]), 12);
                                 break;
                             case "Практ. зан.":
                                 if (currentGroup.Workload.Keys.Contains("Практика"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Практика"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Практика"]), 12);
                                 break;
                             case "Лаб. занятия":
                                 if (currentGroup.Workload.Keys.Contains("Лабораторная"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Лабораторная"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Лабораторная"]), 12);
                                 break;
                             case "Консульт.":
                                 if (currentGroup.Workload.Keys.Contains("Консультация"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Консультация"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Консультация"]), 12);
                                 break;
                             case "Зачёты":
                                 if (currentGroup.Workload.Keys.Contains("Зачет"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Зачет"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Зачет"]), 12);
                                 break;
                             case "Экзамены":
                                 if (currentGroup.Workload.Keys.Contains("Экзамен"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Экзамен"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Экзамен"]), 12);
                                 break;
                             case "Курс. пр.":
                                 if (currentGroup.Workload.Keys.Contains("Курсовая работа"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Курсовая работа"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Курсовая работа"]), 12);
                                 break;
                             case "РГР":
                                 if (currentGroup.Workload.Keys.Contains("РГР, рефератб эссе"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["РГР, рефератб эссе"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["РГР, рефератб эссе"]), 12);
                                 break;
                             case "ГЭК":
                                 if (currentGroup.Workload.Keys.Contains("ГЭК"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["ГЭК"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["ГЭК"]), 12);
+                                break;
+                            case "Всего часов":
+                                WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.total), 12);
                                 break;
                             default:
                                 break;
@@ -192,39 +195,42 @@ namespace Logic
                         {
                             case "Лекции":
                                 if (currentGroup.Workload.Keys.Contains("Лекция"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Лекция"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Лекция"]), 12);
                                 break;
                             case "Практ. зан.":
                                 if (currentGroup.Workload.Keys.Contains("Практика"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Практика"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Практика"]), 12);
                                 break;
                             case "Лаб. занятия":
                                 if (currentGroup.Workload.Keys.Contains("Лабораторная"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Лабораторная"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Лабораторная"]), 12);
                                 break;
                             case "Консульт.":
                                 if (currentGroup.Workload.Keys.Contains("Консультация"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Консультация"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Консультация"]), 12);
                                 break;
                             case "Зачёты":
                                 if (currentGroup.Workload.Keys.Contains("Зачет"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Зачет"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Зачет"]), 12);
                                 break;
                             case "Экзамены":
                                 if (currentGroup.Workload.Keys.Contains("Экзамен"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Экзамен"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Экзамен"]), 12);
                                 break;
                             case "Курс. пр.":
                                 if (currentGroup.Workload.Keys.Contains("Курсовая работа"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["Курсовая работа"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["Курсовая работа"]), 12);
                                 break;
                             case "РГР":
                                 if (currentGroup.Workload.Keys.Contains("РГР, рефератб эссе"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["РГР, рефератб эссе"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["РГР, рефератб эссе"]), 12);
                                 break;
                             case "ГЭК":
                                 if (currentGroup.Workload.Keys.Contains("ГЭК"))
-                                    WriteTextInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToString(currentGroup.Workload["ГЭК"]), 12);
+                                    WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.Workload["ГЭК"]), 12);
+                                break;
+                            case "Всего часов":
+                                WriteIntInCurrentCell(worksheet.Cells[CurrentCell, j], Convert.ToInt32(currentGroup.total), 12);
                                 break;
                             default:
                                 break;
@@ -811,6 +817,18 @@ namespace Logic
         }
 
         ExcelRange WriteTextInCurrentCell(ExcelRange cell, string ValueText, int FontSize)
+        {
+            cell.Value = ValueText;
+            cell.Style.Font.Size = FontSize;
+            cell.Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+            cell.Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+            cell.Style.Font.Name = "Times New Roman";
+            cell.Style.WrapText = true;
+
+            return cell;
+        }
+
+        ExcelRange WriteIntInCurrentCell(ExcelRange cell, int ValueText, int FontSize)
         {
             cell.Value = ValueText;
             cell.Style.Font.Size = FontSize;

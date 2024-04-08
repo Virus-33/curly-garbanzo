@@ -27,7 +27,7 @@ namespace Logic
         public int course;
         public GroupType type;
         public Dictionary<string, byte> Workload;
-
+        public int total { get; set; }
         public Group(){}
 
         public Group(int course, Dictionary<string, byte> load, string code, GroupGrade grade , GroupType type )
